@@ -1,0 +1,22 @@
+{
+  "name": "spacex-launchstats-apolloexpress",
+  "version": "1.0.0",
+  "description": "Simple application to get Space-X mission launches.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Puneeth P Gowda",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.23.0",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
