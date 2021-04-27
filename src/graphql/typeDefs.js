@@ -18,6 +18,7 @@ const typeDefs = gql`
 
   type Query {
     launches: [LaunchType]
+    launch(flight_number: Int): LaunchType
   }
 `;
 
