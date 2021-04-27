@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { gql, useQuery } from "@apollo/client";
+import LaunchItem from "./LaunchItem";
 
 const SPACEX_LAUNCHES = gql`
   query GetAllLaunches {
@@ -17,9 +18,16 @@ const Launches = () => {
   const { loading, error, data } = useQuery(SPACEX_LAUNCHES);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>ERROR</p>;
-  if (!data) return <p>Not found</p>;
-
-  return <h1>Test</h1>;
+  return (
+    <Fragment>
+      <h1 className="display-4 my-3">Launches</h1>
+      <Fragment>
+        {data.launches.map((launch) => (
+          <LaunchItem key={launch.flight_number} launch={launch} />
+        ))}
+      </Fragment>
+    </Fragment>
+  );
 };
 
 export default Launches;
