@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { gql, useQuery } from "@apollo/client";
 import LaunchItem from "./LaunchItem";
 import MissionKey from "./MissionKey";
+import nextId from "react-id-generator";
+import LoaderUI from "./LoaderUI";
 
 const SPACEX_LAUNCHES = gql`
   query GetAllLaunches {
@@ -17,18 +19,20 @@ const SPACEX_LAUNCHES = gql`
 
 const Launches = () => {
   const { loading, error, data } = useQuery(SPACEX_LAUNCHES);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderUI />;
   if (error) return <p>ERROR</p>;
   return (
-    <Fragment>
-      <h1 className="display-4 my-3">Launches</h1>
-      <MissionKey />
+    <div className="container">
       <Fragment>
-        {data.launches.map((launch) => (
-          <LaunchItem key={launch.flight_number} launch={launch} />
-        ))}
+        <h1 className="display-4 my-3">Launches</h1>
+        <MissionKey />
+        <Fragment>
+          {data.launches.map((launch) => (
+            <LaunchItem key={nextId()} launch={launch} />
+          ))}
+        </Fragment>
       </Fragment>
-    </Fragment>
+    </div>
   );
 };
 
