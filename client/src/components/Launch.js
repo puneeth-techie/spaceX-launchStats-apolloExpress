@@ -71,6 +71,10 @@ const Launch = () => {
               Rocket: {data.launch.rocket.rocket_type}
             </li>
           </ul>
+          <hr />
+          <Link to="/" className="btn btn-secondary">
+            Back
+          </Link>
         </div>
       </Fragment>
     </div>
