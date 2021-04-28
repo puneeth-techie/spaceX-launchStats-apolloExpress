@@ -3,6 +3,7 @@ import app from "../startup/app.js";
 import typeDefs from "./typeDefs.js";
 import resolvers from "./resolvers.js";
 
+/** apollo server function */
 const startApolloServer = async () => {
   const server = new ApolloServer({
     typeDefs,

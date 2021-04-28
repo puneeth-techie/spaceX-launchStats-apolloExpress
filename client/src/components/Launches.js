@@ -5,6 +5,7 @@ import MissionKey from "./MissionKey";
 import nextId from "react-id-generator";
 import LoaderUI from "./LoaderUI";
 
+/** Query to get all mission launches */
 const SPACEX_LAUNCHES = gql`
   query GetAllLaunches {
     launches {

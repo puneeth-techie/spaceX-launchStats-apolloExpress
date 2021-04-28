@@ -1,5 +1,6 @@
 import { gql } from "apollo-server-express";
 
+/** typeDefs */
 const typeDefs = gql`
   type RocketType {
     rocket_id: String

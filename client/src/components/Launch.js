@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { useParams } from "react-router-dom";
 import LoaderUI from "./LoaderUI";
 
+/** Query to get specific launch */
 const LAUNCH = gql`
   query getOneLaunch($flight_number: Int!) {
     launch(flight_number: $flight_number) {
